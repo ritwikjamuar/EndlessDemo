@@ -5,6 +5,14 @@
 	xmlns:tools = "http://schemas.android.com/tools"
 	tools:context = ".ui.viewHolder.ErrorVH" >
 
+	<data>
+
+		<variable
+			name = "description"
+			type = "String" />
+
+	</data>
+
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width = "match_parent"
 		android:layout_height = "wrap_content" >
@@ -42,6 +50,7 @@
 			style = "@style/ErrorTextStyle"
 			android:layout_width = "wrap_content"
 			android:layout_height = "wrap_content"
+			android:text="@{description}"
 			app:layout_constraintBottom_toTopOf = "@id/button_retry"
 			app:layout_constraintEnd_toEndOf = "@id/guideline_right"
 			app:layout_constraintStart_toStartOf = "@id/guideline_left"

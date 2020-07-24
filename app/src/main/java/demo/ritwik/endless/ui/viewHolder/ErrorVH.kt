@@ -29,6 +29,15 @@ class ErrorVH(private val binding: ItemErrorBinding): RecyclerView.ViewHolder(bi
 	/**Attaches this [RecyclerView.ViewHolder] from the window.*/
 	fun markDetached() = cleanUp()
 
+	/**
+	 * Sets the Description of Error.
+	 *
+	 * @param errorDescription [String] describing the Error.
+	 */
+	fun setDescription(errorDescription: String) = with(binding) {
+		description = errorDescription
+	}
+
 	/*------------------------------------- Private Methods --------------------------------------*/
 
 	/**Initializes the components in this [RecyclerView.ViewHolder].*/
