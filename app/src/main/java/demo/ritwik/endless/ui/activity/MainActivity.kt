@@ -1,7 +1,10 @@
-package demo.ritwik.endless
+package demo.ritwik.endless.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+
+import demo.ritwik.endless.R
 
 class MainActivity : AppCompatActivity() {
 

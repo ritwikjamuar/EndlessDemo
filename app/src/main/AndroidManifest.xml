@@ -16,7 +16,7 @@
 
 		<!-- ============================================= Activities ============================================== -->
 
-		<activity android:name = ".MainActivity" >
+		<activity android:name = ".ui.activity.MainActivity" >
 			<intent-filter >
 				<action android:name = "android.intent.action.MAIN" />
 				<category android:name = "android.intent.category.LAUNCHER" />
