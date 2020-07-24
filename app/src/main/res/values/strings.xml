@@ -1,3 +1,16 @@
 <resources >
+
 	<string name = "app_name" >EndlessDemo</string >
+
+	<!-- ============================================ Placeholder Texts ============================================ -->
+
+	<string name = "placeholder_rider_name" >Rider Name</string >
+	<string name = "placeholder_country_code" >Country</string >
+	<string name = "placeholder_podiums" >Podiums</string >
+	<string name = "placeholder_championships" >Championships</string >
+
+	<!-- =============================================== Button Texts ============================================== -->
+
+	<string name = "button_retry" >Retry</string >
+
 </resources >

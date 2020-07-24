@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	xmlns:android = "http://schemas.android.com/apk/res/android"
+	xmlns:app = "http://schemas.android.com/apk/res-auto"
+	xmlns:tools = "http://schemas.android.com/tools"
+	tools:context = ".ui.viewHolder.RiderVH">
+
+	<data >
+
+		<variable
+			name = "rider"
+			type = "demo.ritwik.endless.data.Rider" />
+
+	</data >
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content" >
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id = "@+id/guideline_left"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:orientation = "vertical"
+			app:layout_constraintGuide_percent = "0.02" />
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id = "@+id/guideline_right"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:orientation = "vertical"
+			app:layout_constraintGuide_percent = "0.98" />
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id = "@+id/guideline_top"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:orientation = "horizontal"
+			app:layout_constraintGuide_begin = "10dp" />
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id = "@+id/guideline_bottom"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:orientation = "horizontal"
+			app:layout_constraintGuide_end = "10dp" />
+
+		<TextView
+			android:id = "@+id/placeholder_text_rider_name"
+			style = "@style/PlaceHolderTextStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "@string/placeholder_rider_name"
+			app:layout_constraintBottom_toTopOf = "@id/value_text_rider_name"
+			app:layout_constraintEnd_toStartOf = "@id/placeholder_text_country"
+			app:layout_constraintHorizontal_chainStyle = "spread_inside"
+			app:layout_constraintStart_toStartOf = "@id/guideline_left"
+			app:layout_constraintTop_toTopOf = "@id/guideline_top" />
+
+		<TextView
+			android:id = "@+id/value_text_rider_name"
+			style = "@style/RiderNameStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "@{rider.name}"
+			app:layout_constraintStart_toStartOf = "@id/guideline_left"
+			app:layout_constraintTop_toBottomOf = "@id/placeholder_text_rider_name"
+			tools:text = "Valentino Rossi" />
+
+		<TextView
+			android:id = "@+id/placeholder_text_country"
+			style = "@style/PlaceHolderTextStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "@string/placeholder_country_code"
+			app:layout_constraintBottom_toTopOf = "@id/value_text_country_code"
+			app:layout_constraintEnd_toEndOf = "@id/guideline_right"
+			app:layout_constraintStart_toEndOf = "@id/placeholder_text_rider_name"
+			app:layout_constraintTop_toTopOf = "@id/guideline_top" />
+
+		<TextView
+			android:id = "@+id/value_text_country_code"
+			style = "@style/CountryCodeStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "@{rider.countryCode}"
+			app:layout_constraintEnd_toEndOf = "@id/guideline_right"
+			app:layout_constraintTop_toBottomOf = "@id/placeholder_text_country"
+			tools:text = "ITA" />
+
+		<TextView
+			android:id = "@+id/placeholder_text_podiums"
+			style = "@style/PlaceHolderTextStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "@string/placeholder_podiums"
+			app:layout_constraintBottom_toBottomOf = "@id/guideline_bottom"
+			app:layout_constraintStart_toStartOf = "@id/guideline_left" />
+
+		<TextView
+			android:id = "@+id/value_text_podiums"
+			style = "@style/PodiumsStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "@{Integer.toString(rider.podiums)}"
+			app:layout_constraintBottom_toTopOf = "@id/placeholder_text_podiums"
+			app:layout_constraintStart_toStartOf = "@id/guideline_left"
+			tools:text = "234" />
+
+		<TextView
+			android:id = "@+id/placeholder_text_championships"
+			style = "@style/PlaceHolderTextStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "@string/placeholder_championships"
+			app:layout_constraintBottom_toBottomOf = "@id/guideline_bottom"
+			app:layout_constraintEnd_toEndOf = "@id/guideline_right" />
+
+		<TextView
+			android:id = "@+id/value_text_championships"
+			style = "@style/ChampionshipStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "@{Integer.toString(rider.championships)}"
+			app:layout_constraintBottom_toTopOf = "@id/placeholder_text_podiums"
+			app:layout_constraintEnd_toEndOf = "@id/guideline_right"
+			tools:text = "9" />
+
+		<TextView
+			android:id = "@+id/value_text_rider_number"
+			style = "@style/RiderNumberStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:text = "@{Integer.toString(rider.number)"
+			app:layout_constraintBottom_toTopOf = "@id/value_text_podiums"
+			app:layout_constraintEnd_toEndOf = "@id/guideline_right"
+			app:layout_constraintStart_toStartOf = "@id/guideline_left"
+			app:layout_constraintTop_toBottomOf = "@id/value_text_rider_name"
+			tools:text = "46" />
+
+		<View
+			android:layout_width = "match_parent"
+			android:layout_height = "1dp"
+			android:background = "#333333"
+			app:layout_constraintBottom_toBottomOf = "parent"
+			app:layout_constraintEnd_toEndOf = "parent"
+			app:layout_constraintStart_toStartOf = "parent" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout >
+
+</layout >

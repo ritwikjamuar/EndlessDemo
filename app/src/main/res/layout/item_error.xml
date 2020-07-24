@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	xmlns:android = "http://schemas.android.com/apk/res/android"
+	xmlns:app = "http://schemas.android.com/apk/res-auto"
+	xmlns:tools = "http://schemas.android.com/tools"
+	tools:context = ".ui.viewHolder.ErrorVH" >
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content" >
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id = "@+id/guideline_left"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:orientation = "vertical"
+			app:layout_constraintGuide_percent = "0.02" />
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id = "@+id/guideline_right"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:orientation = "vertical"
+			app:layout_constraintGuide_percent = "0.98" />
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id = "@+id/guideline_top"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:orientation = "horizontal"
+			app:layout_constraintGuide_begin = "10dp" />
+
+		<androidx.constraintlayout.widget.Guideline
+			android:id = "@+id/guideline_bottom"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:orientation = "horizontal"
+			app:layout_constraintGuide_end = "10dp" />
+
+		<TextView
+			android:id = "@+id/value_text_error_description"
+			style = "@style/ErrorTextStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			app:layout_constraintBottom_toTopOf = "@id/button_retry"
+			app:layout_constraintEnd_toEndOf = "@id/guideline_right"
+			app:layout_constraintStart_toStartOf = "@id/guideline_left"
+			app:layout_constraintTop_toTopOf = "@id/guideline_top"
+			app:layout_constraintVertical_chainStyle = "spread_inside"
+			tools:text = "Something went wrong. Please try again." />
+
+		<TextView
+			android:id = "@+id/button_retry"
+			style = "@style/RetryButtonStyle"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:layout_marginTop = "10dp"
+			android:text = "@string/button_retry"
+			app:layout_constraintBottom_toBottomOf = "@id/guideline_bottom"
+			app:layout_constraintEnd_toEndOf = "@id/guideline_right"
+			app:layout_constraintStart_toStartOf = "@id/guideline_left"
+			app:layout_constraintTop_toBottomOf = "@id/value_text_error_description" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout >
+
+</layout >
