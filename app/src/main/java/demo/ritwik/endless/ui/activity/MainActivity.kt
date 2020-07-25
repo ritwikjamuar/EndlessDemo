@@ -8,6 +8,10 @@ import androidx.databinding.DataBindingUtil
 
 import androidx.lifecycle.ViewModelProvider
 
+import androidx.recyclerview.widget.RecyclerView
+
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+
 import demo.ritwik.endless.R
 
 import demo.ritwik.endless.databinding.ActivityMainBinding
@@ -16,6 +20,8 @@ import demo.ritwik.endless.mvvm.repository.MainRepository
 
 import demo.ritwik.endless.mvvm.viewModel.MainVMFactory
 import demo.ritwik.endless.mvvm.viewModel.MainViewModel
+
+import demo.ritwik.endless.ui.adapter.RiderAdapter
 
 /**
  * [android.app.Activity] to show [List] of MotoGP Riders.
@@ -31,6 +37,25 @@ class MainActivity : AppCompatActivity() {
 
 	/**Reference of [MainViewModel].*/
 	private lateinit var viewModel : MainViewModel
+
+	/**Adapter of [demo.ritwik.endless.data.Rider].*/
+	private lateinit var adapter: RiderAdapter
+
+	/*-------------------------------------- View Callbacks --------------------------------------*/
+
+	/**[SwipeRefreshLayout.OnRefreshListener] to intercept 'Refresh' event.*/
+	private val refreshListener  = SwipeRefreshLayout.OnRefreshListener {
+		// TODO : Handle Refresh scenario.
+	}
+
+	/**[RecyclerView.OnScrollListener] to intercept scroll.*/
+	private val scrollListener = object:RecyclerView.OnScrollListener() {
+		override fun onScrollStateChanged(recyclerView : RecyclerView, newState : Int) = Unit
+		override fun onScrolled(recyclerView : RecyclerView, dx : Int, dy : Int) {
+			super.onScrolled(recyclerView, dx, dy)
+			// TODO : Handle the Scroll behavior.
+		}
+	}
 
 	/*------------------------------------ Activity Callbacks ------------------------------------*/
 
@@ -62,7 +87,12 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	/**Initialize the [android.view.View]s under [ActivityMainBinding].*/
-	private fun initializeViews() = Unit
+	private fun initializeViews() = with(binding) {
+		viewSwipe.setOnRefreshListener(refreshListener)
+		adapter = RiderAdapter()
+		listRiders.adapter = adapter
+		listRiders.addOnScrollListener(scrollListener)
+	}
 
 	/**De-references any references to avoid a potential Memory Leak.*/
 	private fun cleanUp() = Unit
