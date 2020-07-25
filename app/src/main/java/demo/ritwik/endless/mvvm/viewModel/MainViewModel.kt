@@ -89,6 +89,7 @@ class MainViewModel private constructor(private val repository : MainRepository)
 		_loading = MutableLiveData()
 		_list = MutableLiveData()
 		_error = MutableLiveData()
+		_clearList = MutableLiveData()
 	}
 
 	/**Shows the Loading in the UI.*/
