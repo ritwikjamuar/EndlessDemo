@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 import androidx.databinding.DataBindingUtil
 
+import androidx.lifecycle.Observer
+
 import androidx.lifecycle.ViewModelProvider
 
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +17,8 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.gson.Gson
 
 import demo.ritwik.endless.R
+
+import demo.ritwik.endless.data.Rider
 
 import demo.ritwik.endless.databinding.ActivityMainBinding
 
@@ -43,6 +47,36 @@ class MainActivity : AppCompatActivity() {
 	/**Adapter of [demo.ritwik.endless.data.Rider].*/
 	private lateinit var adapter : RiderAdapter
 
+	/*---------------------------------------- Observers -----------------------------------------*/
+
+	/**[Observer] for show/hide the Loading View using [RiderAdapter].*/
+	private val loadingObserver = Observer<Boolean> { show ->
+		if (show) {
+			adapter.addLoading()
+		} else {
+			adapter.removeLoading()
+		}
+	}
+
+	/**[Observer] for populating [List] of [Rider] using [RiderAdapter].*/
+	private val listObserver = Observer<List<Rider>> { riders ->
+		adapter.addItems(riders)
+	}
+
+	/**[Observer] for showing Error View using [RiderAdapter].*/
+	private val errorObserver = Observer<String> { description ->
+		if (description.isEmpty()) {
+			adapter.removeError()
+		} else {
+			adapter.addError(description)
+		}
+	}
+
+	/**[Observer] for clearing [List] of [Rider] using [RiderAdapter].*/
+	private val clearListObserver = Observer<Unit> {
+		adapter.clearItems()
+	}
+
 	/*-------------------------------------- View Callbacks --------------------------------------*/
 
 	/**[SwipeRefreshLayout.OnRefreshListener] to intercept 'Refresh' event.*/
@@ -64,6 +98,8 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 
 		binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+		attachObservers()
 
 		initializeViews()
 
@@ -90,6 +126,14 @@ class MainActivity : AppCompatActivity() {
 		adapter = RiderAdapter()
 		listRiders.adapter = adapter
 		listRiders.addOnScrollListener(scrollListener)
+	}
+
+	private fun attachObservers() = with(viewModel) {
+		val lifecycleOwner = this@MainActivity
+		loadingLiveData.observe(lifecycleOwner, loadingObserver)
+		listLiveData.observe(lifecycleOwner, listObserver)
+		errorLiveData.observe(lifecycleOwner, errorObserver)
+		clearListLiveData.observe(lifecycleOwner, clearListObserver)
 	}
 
 	/**De-references any references to avoid a potential Memory Leak.*/
