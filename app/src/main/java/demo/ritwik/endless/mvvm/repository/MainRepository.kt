@@ -7,8 +7,12 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 import demo.ritwik.endless.data.Rider
+import kotlinx.coroutines.delay
 
 import java.io.IOException
+
+/**Immutable [Int] that denotes the size of Results we wish to get on every request.*/
+const val PAGE_SIZE: Int = 10
 
 /**
  * Repository of [demo.ritwik.endless.mvvm.viewModel.MainViewModel].
@@ -22,6 +26,31 @@ class MainRepository constructor(private val context : Context, private val gson
 
 	/**[List] of [Rider] extracted from a JSON File in the 'assets' directory.*/
 	private val riders: List<Rider> by lazy { getAllRiders() }
+
+	/*-------------------------------------- Public Methods --------------------------------------*/
+
+	/**
+	 * Get the [List] of [Rider] in the range of [page].
+	 *
+	 * @param page [Int] denoting the Page Number for which we want to fetch the [Rider]s.
+	 * @return [List] of [Rider] under the range of [page].
+	 */
+	suspend fun getRiders(page: Int): List<Rider> = ArrayList<Rider>().apply {
+		val startIndex = page * PAGE_SIZE // Determine the Starting Index.
+		var endIndex = (page+1) * PAGE_SIZE // Determine the Ending Index.
+		val size = riders.size // Determine the size of List.
+
+		if (startIndex < size) { // Check whether the 'startIndex' is less than the size of the List.
+			if (endIndex >= size) { // Check whether the 'endIndex' is greater than the size of List.
+				endIndex = size // Make the 'endIndex' as same as size of the List itself.
+			}
+			for (i in startIndex until endIndex) {
+				this.add(riders[i]) // Add the Rider into this List.
+			}
+		}
+
+		delay(1000) // Artificially create a delay of 1 second/
+	}
 
 	/*------------------------------------- Private Methods --------------------------------------*/
 
