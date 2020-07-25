@@ -39,6 +39,11 @@ class MainViewModel private constructor(private val repository : MainRepository)
 	 * in the UI.*/
 	val clearListLiveData: LiveData<Unit> get() = _clearList
 
+	/*------------------------------------- Member Variables -------------------------------------*/
+
+	/**Mutable [Int] that denotes the Page Number for fetching the [List] of [Rider].*/
+	private var page = 0
+
 	/*------------------------------------ Initializer Block -------------------------------------*/
 
 	init {
@@ -90,6 +95,16 @@ class MainViewModel private constructor(private val repository : MainRepository)
 		_list = MutableLiveData()
 		_error = MutableLiveData()
 		_clearList = MutableLiveData()
+	}
+
+	/**Increases the value of [page] by 1.*/
+	private fun incrementPage() {
+		page += 1
+	}
+
+	/**Re-sets the value of [page] to 0.*/
+	private fun resetPage() {
+		page = 0
 	}
 
 	/**Shows the Loading in the UI.*/
