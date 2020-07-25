@@ -59,6 +59,24 @@ class MainViewModel private constructor(private val repository : MainRepository)
 
 	}
 
+	/*-------------------------------------- Public Methods --------------------------------------*/
+
+	/**
+	 * Handles the event of UI when the [List] of [Rider] is scrolled.
+	 *
+	 * @param visibleItemCount [Int] denoting the No. of [Rider] that are visible in the UI.
+	 * @param totalItemCount [Int] denoting the total count of [Rider]s.
+	 * @param firstVisibleItemPosition [Int] denoting the position of first Visible [Rider].
+	 */
+	fun onScrolled(visibleItemCount: Int, totalItemCount: Int, firstVisibleItemPosition: Int) {
+		if (visibleItemCount + firstVisibleItemPosition >= totalItemCount &&
+			firstVisibleItemPosition >= 0) {
+			if (!isLoading()!! && !isError()) {
+				// TODO: Perform fetch of Riders.
+			}
+		}
+	}
+
 	/*------------------------------------- Private Methods --------------------------------------*/
 
 	/**Initializes all the [MutableLiveData] in this [ViewModel].*/
@@ -79,6 +97,17 @@ class MainViewModel private constructor(private val repository : MainRepository)
 	}
 
 	/**
+	 * Determines whether the Loading is being displayed in the UI or not.
+	 *
+	 * @return true, if the Loading is displayed, else false.
+	 */
+	private fun isLoading() = if (_loading.value == null) {
+		false
+	} else {
+		_loading.value
+	}
+
+	/**
 	 * Sends the [List] of [Rider] to UI for displaying.
 	 *
 	 * @param riders [List] of [Rider] we want to show.
@@ -96,6 +125,13 @@ class MainViewModel private constructor(private val repository : MainRepository)
 	private fun hideError() {
 		_error.value = ""
 	}
+
+	/**
+	 * Determines whether the Error is being displayed in the UI or not.
+	 *
+	 * @return true, if the Error is displayed, else false.
+	 */
+	private fun isError() = _error.value?.isEmpty() ?: false
 
 	/**Clears the [List] of [Rider] from the UI.*/
 	private fun clearList() {

@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 
 import androidx.lifecycle.ViewModelProvider
 
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -81,12 +82,27 @@ class MainActivity : AppCompatActivity() {
 
 	/**[SwipeRefreshLayout.OnRefreshListener] to intercept 'Refresh' event.*/
 	private val refreshListener = SwipeRefreshLayout.OnRefreshListener {
-		// TODO : Handle Refresh scenario.
+
 	}
 
 	/**[RecyclerView.OnScrollListener] to intercept scroll.*/
 	private val scrollListener = object : RecyclerView.OnScrollListener() {
 		override fun onScrollStateChanged(recyclerView : RecyclerView, newState : Int) = Unit
+		override fun onScrolled(recyclerView : RecyclerView, dx : Int, dy : Int) {
+			super.onScrolled(recyclerView, dx, dy)
+
+			// Get the LayoutManager from the RecyclerView.
+			// If not able to get the LayoutManager, then halt the further execution here.
+			val layoutManager = binding.listRiders.layoutManager as LinearLayoutManager? ?: return
+
+			// Notify the ViewModel about the scroll.
+			viewModel.onScrolled(
+				layoutManager.childCount,
+				layoutManager.itemCount,
+				layoutManager.findFirstVisibleItemPosition()
+			)
+
+		}
 	}
 
 	/*------------------------------------ Activity Callbacks ------------------------------------*/
