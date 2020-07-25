@@ -73,6 +73,11 @@ class MainViewModel private constructor(private val repository : MainRepository)
 
 	/*-------------------------------------- Public Methods --------------------------------------*/
 
+	/**Handles the event of UI when it has finished initializing itself.*/
+	fun handleInitialUI() {
+		fetchRiders()
+	}
+
 	/**
 	 * Handles the event of UI when the [List] of [Rider] is scrolled.
 	 *

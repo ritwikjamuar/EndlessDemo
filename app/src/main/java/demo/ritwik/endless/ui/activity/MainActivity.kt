@@ -120,6 +120,8 @@ class MainActivity : AppCompatActivity() {
 
 		initializeViews()
 
+		viewModel.handleInitialUI()
+
 	}
 
 	override fun onDestroy() {
