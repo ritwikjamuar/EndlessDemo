@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
+import com.google.gson.Gson
+
 import demo.ritwik.endless.R
 
 import demo.ritwik.endless.databinding.ActivityMainBinding
@@ -39,22 +41,18 @@ class MainActivity : AppCompatActivity() {
 	private lateinit var viewModel : MainViewModel
 
 	/**Adapter of [demo.ritwik.endless.data.Rider].*/
-	private lateinit var adapter: RiderAdapter
+	private lateinit var adapter : RiderAdapter
 
 	/*-------------------------------------- View Callbacks --------------------------------------*/
 
 	/**[SwipeRefreshLayout.OnRefreshListener] to intercept 'Refresh' event.*/
-	private val refreshListener  = SwipeRefreshLayout.OnRefreshListener {
+	private val refreshListener = SwipeRefreshLayout.OnRefreshListener {
 		// TODO : Handle Refresh scenario.
 	}
 
 	/**[RecyclerView.OnScrollListener] to intercept scroll.*/
-	private val scrollListener = object:RecyclerView.OnScrollListener() {
+	private val scrollListener = object : RecyclerView.OnScrollListener() {
 		override fun onScrollStateChanged(recyclerView : RecyclerView, newState : Int) = Unit
-		override fun onScrolled(recyclerView : RecyclerView, dx : Int, dy : Int) {
-			super.onScrolled(recyclerView, dx, dy)
-			// TODO : Handle the Scroll behavior.
-		}
 	}
 
 	/*------------------------------------ Activity Callbacks ------------------------------------*/
@@ -81,9 +79,9 @@ class MainActivity : AppCompatActivity() {
 
 	/**Fulfill the required dependencies of this [android.app.Activity].*/
 	private fun inject() {
+		val repository = MainRepository(this.applicationContext, Gson())
 		viewModel =
-			ViewModelProvider(this, MainVMFactory(MainRepository(this.applicationContext)))
-				.get(MainViewModel::class.java)
+			ViewModelProvider(this, MainVMFactory(repository)).get(MainViewModel::class.java)
 	}
 
 	/**Initialize the [android.view.View]s under [ActivityMainBinding].*/
