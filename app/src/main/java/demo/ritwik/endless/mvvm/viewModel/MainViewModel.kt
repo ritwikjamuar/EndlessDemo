@@ -9,6 +9,13 @@ import demo.ritwik.endless.data.Rider
 
 import demo.ritwik.endless.mvvm.repository.MainRepository
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
+import java.lang.Exception
+
 /**
  * [ViewModel] of [demo.ritwik.endless.ui.activity.MainActivity].
  *
@@ -77,14 +84,16 @@ class MainViewModel private constructor(private val repository : MainRepository)
 		if (visibleItemCount + firstVisibleItemPosition >= totalItemCount &&
 			firstVisibleItemPosition >= 0) {
 			if (!isLoading()!! && !isError()) {
-				// TODO: Perform fetch of Riders.
+				fetchRiders()
 			}
 		}
 	}
 
 	/**Handles the event of UI when the User asks for refreshing the [List] of [Rider].*/
 	fun onRefresh() {
-		// TODO: Perform fetch of Riders.
+		resetPage()
+		clearList()
+		fetchRiders()
 	}
 
 	/*------------------------------------- Private Methods --------------------------------------*/
@@ -157,6 +166,28 @@ class MainViewModel private constructor(private val repository : MainRepository)
 	/**Clears the [List] of [Rider] from the UI.*/
 	private fun clearList() {
 		_clearList.value = Unit
+	}
+
+	/**Tells [MainRepository] to provide the [Rider]s from it's Data Sources.*/
+	private fun fetchRiders() {
+		showLoading() // Show Loading
+		CoroutineScope(Dispatchers.IO).launch { // Fetch the List of Riders in IO Thread.
+			try {
+				val list = repository.getRiders(page) // Fetch the Riders.
+				withContext(Dispatchers.Main) {
+					// Once fetched, then perform the operations below in Main Thread.
+					hideLoading()
+					populateList(list)
+					incrementPage()
+				}
+			} catch (e: Exception) {
+				withContext(Dispatchers.Main) {
+					// In the case of exception, notify UI of Error.
+					hideLoading()
+					showError("Something went wrong. Please try again")
+				}
+			}
+		}
 	}
 
 }
