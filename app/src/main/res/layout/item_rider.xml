@@ -131,7 +131,7 @@
 			style = "@style/RiderNumberStyle"
 			android:layout_width = "wrap_content"
 			android:layout_height = "wrap_content"
-			android:text = "@{Integer.toString(rider.number)"
+			android:text = "@{Integer.toString(rider.number)}"
 			app:layout_constraintBottom_toTopOf = "@id/value_text_podiums"
 			app:layout_constraintEnd_toEndOf = "@id/guideline_right"
 			app:layout_constraintStart_toStartOf = "@id/guideline_left"

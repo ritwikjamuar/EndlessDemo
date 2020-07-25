@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
 	/**[Observer] for show/hide the Loading View using [RiderAdapter].*/
 	private val loadingObserver = Observer<Boolean> { show ->
+		binding.viewSwipe.isRefreshing = false // Remove the Loading Animation.
 		if (show) {
 			adapter.addLoading()
 		} else {
