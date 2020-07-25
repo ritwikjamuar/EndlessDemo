@@ -65,7 +65,7 @@ class MainRepository constructor(private val context : Context, private val gson
 		return if (json.isEmpty()) {
 			emptyList()
 		} else {
-			val type = object :TypeToken<Rider>(){}.type
+			val type = object :TypeToken<List<Rider>>(){}.type
 			gson.fromJson(json, type)
 		}
 	}
