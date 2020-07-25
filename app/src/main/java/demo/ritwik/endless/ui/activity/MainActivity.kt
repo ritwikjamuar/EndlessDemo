@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 
 	/**[SwipeRefreshLayout.OnRefreshListener] to intercept 'Refresh' event.*/
 	private val refreshListener = SwipeRefreshLayout.OnRefreshListener {
-
+		viewModel.onRefresh()
 	}
 
 	/**[RecyclerView.OnScrollListener] to intercept scroll.*/

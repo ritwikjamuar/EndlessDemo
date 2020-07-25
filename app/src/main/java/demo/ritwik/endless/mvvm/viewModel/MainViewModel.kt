@@ -77,6 +77,11 @@ class MainViewModel private constructor(private val repository : MainRepository)
 		}
 	}
 
+	/**Handles the event of UI when the User asks for refreshing the [List] of [Rider].*/
+	fun onRefresh() {
+		// TODO: Perform fetch of Riders.
+	}
+
 	/*------------------------------------- Private Methods --------------------------------------*/
 
 	/**Initializes all the [MutableLiveData] in this [ViewModel].*/
