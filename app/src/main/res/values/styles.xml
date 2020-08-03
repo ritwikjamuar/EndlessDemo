@@ -5,6 +5,61 @@
 		<item name = "colorPrimary" >@color/colorPrimary</item >
 		<item name = "colorPrimaryDark" >@color/colorPrimaryDark</item >
 		<item name = "colorAccent" >@color/colorAccent</item >
+		<item name = "android:windowBackground" >@android:color/black</item >
+	</style >
+
+	<style name = "PlaceHolderTextStyle" >
+		<item name = "android:textColor" >@android:color/white</item >
+		<item name = "android:textSize" >12sp</item >
+		<item name = "android:fontFamily" >@font/oswald</item >
+		<item name = "android:textAllCaps" >true</item >
+	</style >
+
+	<style name = "RiderNameStyle" >
+		<item name = "android:textColor" >@color/colorRiderName</item >
+		<item name = "android:textSize" >20sp</item >
+		<item name = "android:fontFamily" >@font/roboto</item >
+	</style >
+
+	<style name = "CountryCodeStyle" >
+		<item name = "android:textColor" >@color/colorCountry</item >
+		<item name = "android:textSize" >20sp</item >
+		<item name = "android:fontFamily" >@font/roboto_light</item >
+	</style >
+
+	<style name = "PodiumsStyle" >
+		<item name = "android:textColor" >@color/colorPodiums</item >
+		<item name = "android:textSize" >20sp</item >
+		<item name = "android:fontFamily" >@font/roboto_light</item >
+	</style >
+
+	<style name = "ChampionshipStyle" >
+		<item name = "android:textColor" >@color/colorChampionships</item >
+		<item name = "android:textSize" >20sp</item >
+		<item name = "android:fontFamily" >@font/roboto</item >
+	</style >
+
+	<style name = "RiderNumberStyle" >
+		<item name = "android:textColor" >@color/colorRiderNumber</item >
+		<item name = "android:textSize" >35sp</item >
+		<item name = "android:fontFamily" >@font/roboto_medium_italic</item >
+	</style >
+
+	<style name = "ErrorTextStyle" >
+		<item name = "android:textColor" >@color/colorError</item >
+		<item name = "android:textSize" >18sp</item >
+		<item name = "android:fontFamily" >@font/roboto</item >
+	</style >
+
+	<style name = "RetryButtonStyle" >
+		<item name = "android:background" >@color/colorError</item >
+		<item name = "android:textColor" >@android:color/black</item >
+		<item name = "android:textAllCaps" >true</item >
+		<item name = "android:textSize" >18sp</item >
+		<item name = "android:paddingStart" >10dp</item >
+		<item name = "android:paddingEnd" >10dp</item >
+		<item name = "android:paddingTop" >5dp</item >
+		<item name = "android:paddingBottom" >5dp</item >
 	</style >
 
 </resources >

@@ -1,0 +1,247 @@
+[
+  {
+	"name": "Valentino Rossi",
+	"countryCode": "ITA",
+	"podiums": 234,
+	"championships": 9,
+	"number": 46
+  },
+  {
+	"name": "Casey Stoner",
+	"countryCode": "AUS",
+	"podiums": 89,
+	"championships": 2,
+	"number": 27
+  },
+  {
+	"name": "Dani Pedrosa",
+	"countryCode": "SPA",
+	"podiums": 153,
+	"championships": 3,
+	"number": 26
+  },
+  {
+	"name": "Jorge Lorenzo",
+	"countryCode": "SPA",
+	"podiums": 152,
+	"championships": 5,
+	"number": 99
+  },
+  {
+	"name": "Marc Marquez",
+	"countryCode": "SPA",
+	"podiums": 134,
+	"championships": 8,
+	"number": 93
+  },
+  {
+	"name": "Cal Crutchlow",
+	"countryCode": "UK",
+	"podiums": 19,
+	"championships": 0,
+	"number": 35
+  },
+  {
+	"name": "Andrea Doviozo",
+	"countryCode": "ITA",
+	"podiums": 102,
+	"championships": 1,
+	"number": 4
+  },
+  {
+	"name": "Maverick Viñales",
+	"countryCode": "SPA",
+	"podiums": 64,
+	"championships": 9,
+	"number": 12
+  },
+  {
+	"name": "Jack Miller",
+	"countryCode": "AUS",
+	"podiums": 16,
+	"championships": 0,
+	"number": 43
+  },
+  {
+	"name": "Alex Rins",
+	"countryCode": "SPA",
+	"podiums": 48,
+	"championships": 0,
+	"number": 42
+  },
+  {
+	"name": "Fabio Quartararo",
+	"countryCode": "FRA",
+	"podiums": 12,
+	"championships": 0,
+	"number": 20
+  },
+  {
+	"name": "Danilo Petrucci",
+	"countryCode": "ITA",
+	"podiums": 9,
+	"championships": 0,
+	"number": 9
+  },
+  {
+	"name": "Fransesco Bagania",
+	"countryCode": "ITA",
+	"podiums": 23,
+	"championships": 1,
+	"number": 63
+  },
+  {
+	"name": "Johann Zarco",
+	"countryCode": "FRA",
+	"podiums": 47,
+	"championships": 2,
+	"number": 5
+  },
+  {
+	"name": "Franco Morbidelli",
+	"countryCode": "ITA",
+	"podiums": 21,
+	"championships": 1,
+	"number": 21
+  },
+  {
+	"name": "Bradley Smith",
+	"countryCode": "UK",
+	"podiums": 28,
+	"championships": 0,
+	"number": 38
+  },
+  {
+	"name": "Fransesco Bagania",
+	"countryCode": "ITA",
+	"podiums": 23,
+	"championships": 1,
+	"number": 63
+  },
+  {
+	"name": "Joan Mir",
+	"countryCode": "SPA",
+	"podiums": 20,
+	"championships": 1,
+	"number": 36
+  },
+  {
+	"name": "Brad Binder",
+	"countryCode": "RSA",
+	"podiums": 35,
+	"championships": 1,
+	"number": 33
+  },
+  {
+	"name": "Takaaki Nakagami",
+	"countryCode": "JAP",
+	"podiums": 14,
+	"championships": 0,
+	"number": 30
+  },
+  {
+	"name": "Iker Lecuona",
+	"countryCode": "SPA",
+	"podiums": 2,
+	"championships": 0,
+	"number": 27
+  },
+  {
+	"name": "Aleix Espargaro",
+	"countryCode": "SPA",
+	"podiums": 2,
+	"championships": 0,
+	"number": 41
+  },
+  {
+	"name": "Pol Espargaro",
+	"countryCode": "SPA",
+	"podiums": 45,
+	"championships": 1,
+	"number": 44
+  },
+  {
+	"name": "Tito Rabat",
+	"countryCode": "SPA",
+	"podiums": 36,
+	"championships": 1,
+	"number": 53
+  },
+  {
+	"name": "Alex Marquez",
+	"countryCode": "SPA",
+	"podiums": 38,
+	"championships": 1,
+	"number": 73
+  },
+  {
+	"name": "Miguel Oliveira",
+	"countryCode": "POR",
+	"podiums": 34,
+	"championships": 0,
+	"number": 88
+  },
+  {
+	"name": "Giacomo Agostini",
+	"countryCode": "ITA",
+	"podiums": 158,
+	"championships": 15,
+	"number": 6
+  },
+  {
+	"name": "Kork Ballington",
+	"countryCode": "RSA",
+	"podiums": 39,
+	"championships": 4,
+	"number": 1
+  },
+  {
+	"name": "Alex Criville",
+	"countryCode": "SPA",
+	"podiums": 66,
+	"championships": 2,
+	"number": 28
+  },
+  {
+	"name": "Mick Doohan",
+	"countryCode": "AUS",
+	"podiums": 94,
+	"championships": 5,
+	"number": 1
+  },
+  {
+	"name": "Kenny Roberts",
+	"countryCode": "USA",
+	"podiums": 43,
+	"championships": 3,
+	"number": 1
+  },
+  {
+	"name": "Kenny Roberts Jr.",
+	"countryCode": "USA",
+	"podiums": 22,
+	"championships": 1,
+	"number": 2
+  },
+  {
+	"name": "Nicky Hayden",
+	"countryCode": "USA",
+	"podiums": 28,
+	"championships": 1,
+	"number": 69
+  },
+  {
+	"name": "John Surtees",
+	"countryCode": "UK",
+	"podiums": 42,
+	"championships": 4,
+	"number": 87
+  },
+  {
+	"name": "Max Biaggi",
+	"countryCode": "ITA",
+	"podiums": 107,
+	"championships": 4,
+	"number": 3
+  }
+]
