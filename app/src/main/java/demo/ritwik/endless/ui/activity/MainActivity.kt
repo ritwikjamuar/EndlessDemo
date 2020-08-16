@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
-import com.google.gson.Gson
+import dagger.android.AndroidInjection
 
 import demo.ritwik.endless.R
 
@@ -23,12 +23,12 @@ import demo.ritwik.endless.data.Rider
 
 import demo.ritwik.endless.databinding.ActivityMainBinding
 
-import demo.ritwik.endless.mvvm.repository.MainRepository
-
-import demo.ritwik.endless.mvvm.viewModel.MainVMFactory
 import demo.ritwik.endless.mvvm.viewModel.MainViewModel
+import demo.ritwik.endless.mvvm.viewModel.VMFactory
 
 import demo.ritwik.endless.ui.adapter.RiderAdapter
+
+import javax.inject.Inject
 
 /**
  * [android.app.Activity] to show [List] of MotoGP Riders.
@@ -36,6 +36,11 @@ import demo.ritwik.endless.ui.adapter.RiderAdapter
  * @author Ritwik Jamuar
  */
 class MainActivity : AppCompatActivity() {
+
+	/*-------------------------------------- Injected Fields -------------------------------------*/
+
+	@Inject
+	lateinit var vmFactory: VMFactory
 
 	/*---------------------------------------- Components ----------------------------------------*/
 
@@ -134,9 +139,8 @@ class MainActivity : AppCompatActivity() {
 
 	/**Fulfill the required dependencies of this [android.app.Activity].*/
 	private fun inject() {
-		val repository = MainRepository(this.applicationContext, Gson())
-		viewModel =
-			ViewModelProvider(this, MainVMFactory(repository)).get(MainViewModel::class.java)
+		AndroidInjection.inject(this)
+		viewModel = ViewModelProvider(this, vmFactory).get(MainViewModel::class.java)
 	}
 
 	/**Initialize the [android.view.View]s under [ActivityMainBinding].*/
