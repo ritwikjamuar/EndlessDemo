@@ -11,6 +11,8 @@ import kotlinx.coroutines.delay
 
 import java.io.IOException
 
+import javax.inject.Inject
+
 /**Immutable [Int] that denotes the size of Results we wish to get on every request.*/
 const val PAGE_SIZE: Int = 10
 
@@ -20,7 +22,7 @@ const val PAGE_SIZE: Int = 10
  * @param context [Context] of Application.
  * @author Ritwik Jamuar
  */
-class MainRepository constructor(private val context : Context, private val gson: Gson) {
+class MainRepository @Inject constructor(private val context : Context, private val gson: Gson) {
 
 	/*---------------------------------------- Components ----------------------------------------*/
 

@@ -20,6 +20,8 @@ ext {
 
     def version_android_gradle_plugin = '4.0.1'
 
+    def version_dagger = '2.12'
+
     def version_constraint_layout = '1.1.3'
     def version_google_material = '1.2.0'
     def version_swipe_refresh_layout = '1.1.0'
@@ -62,6 +64,17 @@ ext {
             "androidx.databinding:databinding-compiler:$version_android_gradle_plugin"
     ]
 
+    dependency_injection_libraries = [
+            "com.google.dagger:dagger:$version_dagger",
+            "com.google.dagger:dagger-android:$version_dagger",
+            "com.google.dagger:dagger-android-support:$version_dagger"
+    ]
+
+    dependency_injection_library_compilers = [
+            "com.google.dagger:dagger-compiler:$version_dagger",
+            "com.google.dagger:dagger-android-processor:$version_dagger"
+    ]
+
     utility_libraries = [
             "com.google.code.gson:gson:$version_gson"
     ]
@@ -75,6 +88,8 @@ ext {
             android_libraries,
             lifecycle_libraries,
             ui_libraries,
+            dependency_injection_libraries,
+            utility_libraries
     ]
 
     debugImplementation_libraries = [
@@ -82,7 +97,8 @@ ext {
     ]
 
     kapt_libraries = [
-            ui_library_compilers
+            ui_library_compilers,
+            dependency_injection_library_compilers
     ]
 
     unit_testing_libraries = [
