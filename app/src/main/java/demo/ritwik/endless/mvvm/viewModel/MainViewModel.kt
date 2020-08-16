@@ -3,7 +3,6 @@ package demo.ritwik.endless.mvvm.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 
 import demo.ritwik.endless.data.Rider
 
@@ -16,13 +15,15 @@ import kotlinx.coroutines.withContext
 
 import java.lang.Exception
 
+import javax.inject.Inject
+
 /**
  * [ViewModel] of [demo.ritwik.endless.ui.activity.MainActivity].
  *
  * @param repository Repository of [MainViewModel].
  * @author Ritwik Jamuar
  */
-class MainViewModel private constructor(private val repository : MainRepository): ViewModel() {
+class MainViewModel @Inject constructor(private val repository : MainRepository): ViewModel() {
 
 	/*------------------------------------- Mutable LiveData -------------------------------------*/
 
@@ -194,22 +195,5 @@ class MainViewModel private constructor(private val repository : MainRepository)
 			}
 		}
 	}
-
-}
-
-/**
- * [ViewModelProvider] of [MainViewModel].
- *
- * @param repository Repository of [MainViewModel].
- * @author Ritwik Jamuar
- */
-class MainVMFactory(private val repository : MainRepository) :
-	ViewModelProvider.NewInstanceFactory() {
-
-	/*------------------------------- NewInstanceFactory Callbacks -------------------------------*/
-
-	@Suppress("UNCHECKED_CAST")
-	override fun <T : ViewModel?> create(modelClass : Class<T>) : T =
-		MainViewModel.create(repository) as T
 
 }
